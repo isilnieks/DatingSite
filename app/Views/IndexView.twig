@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <title>Dating</title>
+</head>
+<body>
+<div>
+
+    <div class="bg-indigo-900 px-4 py-4">
+        <div
+                class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
+        >
+            <div class="flex justify-between items-center">
+                <a href="/" class="inline-block py-2 text-white text-xl font-bold"
+                >DatingSite</a
+                >
+                <div
+                        class="inline-block cursor-pointer md:hidden">
+                    <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+                    <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+                    <div class="bg-gray-400 w-8" style="height: 2px;"></div>
+                </div>
+            </div>
+
+
+            {% if id[0]["id"] is empty %}
+            <div class="hidden md:block">
+                <a
+                        href="/login"
+                        class="inline-block py-1 md:py-4 text-white hover:text-gray-100 mr-6"
+                >Login</a
+                >
+                <a
+                        href="/register"
+                        class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
+                >Sign Up</a
+                >
+            </div>
+            {% endif %}
+
+            {% if id[0]["id"] is defined %}
+                <div class="hidden md:block">
+                    <a
+                            href="/profile"
+                            class="inline-block py-1 md:py-4 text-white hover:text-gray-100 mr-6"
+                    >Profile</a
+                    >
+                    <a
+                            href="/logout"
+                            class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
+                    >Logout</a
+                    >
+                </div>
+            {% endif %}
+
+
+
+        </div>
+    </div>
+
+    <div class="bg-gray-50 md:overflow-hidden">
+        <div class="px-4 py-20 md:py-4">
+            <div class="md:max-w-6xl md:mx-auto">
+                <div class="md:flex md:flex-wrap">
+                    <div class="md:w-1/2 text-center md:text-left md:pt-16">
+                        <h1
+                                class="font-bold text-indigo-500 text-2xl md:text-5xl leading-tight mb-4"
+                        >
+                            Simple dating platform for everybody!
+                        </h1>
+
+                        <p class="text-indigo-200 md:text-xl md:pr-48">
+                            The love of your life may be one click away.
+                        </p>
+                        {% if id[0]["id"] is empty %}
+                        <a
+                                href="/register"
+                                class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
+                        >Register to start matching</a
+                        >
+                        {% endif %}
+                        {% if id[0]["id"] is defined %}
+                        <a
+                                href="/matching"
+                                class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
+                        >Start Matching</a
+                        >
+                        {% endif %}
+                    </div>
+                    <div class="md:w-1/2 relative">
+                        <div class="hidden md:block">
+                            <div
+                                    class=""
+                                    style="transform: rotate(-8deg);"
+                            >
+                                <div
+                                        class=""
+                                >
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div
+                                    class=""
+                                    style="transform: rotate(-8deg); z-index: 2; margin-bottom: -220px;"
+                            >
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg
+                class="fill-current text-white hidden md:block"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1440 320"
+        >
+            <path fill-opacity="1" d="M0,224L1440,32L1440,320L0,320Z"></path>
+        </svg>
+    </div>
+
+</div>
+</body>
+</html>

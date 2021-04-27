@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Register</title>
+</head>
+<body>
+
+<div class="bg-gray-50 min-h-screen flex flex-col ">
+    <div class="py-5">
+        <div class="grid grid-cols-2 gap-1">
+            <div class="text-center sm:text-left whitespace-nowrap">
+                <a href="/">
+                <button  class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 inline-block align-text-top">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span class="inline-block ml-1" >Back to home screen</span>
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+            <style>
+                select:invalid { color: gray; }
+            </style>
+            <form action="/register" method="post">
+            <label>
+                <input
+                        required
+                        type="text"
+                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="username"
+                        placeholder="Username" />
+            </label>
+
+            <label>
+
+                <select required  name="gender" id="gender" class="block border border-grey-light w-full p-3 rounded mb-4/>"  >
+                    <option value="" disabled selected hidden>Gender</option>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                </select>
+                <br>
+            </label>
+
+            <label>
+                <input
+                        required
+                        type="password"
+                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="password"
+                        placeholder="Password" />
+            </label>
+
+
+            <button
+                    type="submit"
+                    class="w-full text-center py-3 rounded bg-indigo-900 text-white hover:bg-green-dark focus:outline-none my-1"
+            >Create Account</button>
+            </form>
+
+        </div>
+
+        <div class="text-grey-dark mt-6">
+            Already have an account?
+            <a class="no-underline border-b border-blue text-blue" href="../login">
+                Log in
+            </a>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

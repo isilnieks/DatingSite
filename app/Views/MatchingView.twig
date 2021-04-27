@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Matching</title>
+</head>
+<body>
+<div class="bg-indigo-900 px-4 py-4">
+    <div
+            class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
+    >
+        <div class="flex justify-between items-center">
+            <a href="/" class="inline-block py-2 text-white text-xl font-bold"
+            >DatingSite</a
+            >
+            <div
+                    class="inline-block cursor-pointer md:hidden">
+                <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+                <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+                <div class="bg-gray-400 w-8" style="height: 2px;"></div>
+            </div>
+        </div>
+
+            <div class="hidden md:block">
+                <a
+                        href="/profile"
+                        class="inline-block py-1 md:py-4 text-white hover:text-gray-100 mr-6"
+                >Profile</a
+                >
+                <a
+                        href="/logout"
+                        class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
+                >Logout</a
+                >
+            </div>
+    </div>
+</div>
+<div class="tbg mx-auto my-0 mt-3 bg-white border border-white">
+    {% for user in users %}
+    <div class="theader flex justify-between bg-gray-200  border-white">
+        <div class="flex items-center text-gray-500 text-center px-5">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </div>
+
+        <div class="flex items-center text-center">
+
+        </div>
+
+        <div class="flex items-center text-gray-500 text-center px-5">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+        </div>
+    </div>
+
+
+    <div class="p-3 flex flex-col items-center">
+        <div class="tphoto rounded-lg border border-gray-400 shadow-lg">
+
+            <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                 class="w-full user-image "
+                 title="tphoto"
+                 alt="Tinder Photo"
+            />
+
+            <div class="flex justify-between">
+                <div class="tname text-xl float-left p-4">{{ user['username'] }} </div>
+
+            </div>
+
+        </div>
+        <div>
+            <div class="m-6 space-x-3">
+                <form action="/like" method="post">
+                <button
+                        name="like" value="{{user['id']}}" class="inline-block p-8 text-center text-white bg-yellow-500 transition border border-yellow-500 rounded-full ripple hover:bg-yellow-100 focus:outline-none"
+                >
+                    <svg
+                            class="w-10 h-10  text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                    >
+                        <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                    </svg>
+                </button>
+                <button
+                       form="secondForm" name="dislike" value="{{ user['id'] }}" class="inline-block p-8 text-center text-white transition bg-red-500 rounded-full shadow ripple hover:shadow-lg hover:bg-red-600 focus:outline-none"
+                >
+                    <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                         fill="currentColor">
+                        <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                        />
+                    </svg>
+                </button>
+                </form>
+                <form id="secondForm" action="/dislike" method="post">
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
