@@ -30,18 +30,18 @@
 
 
             {% if id[0]["id"] is empty %}
-            <div class="hidden md:block">
-                <a
-                        href="/login"
-                        class="inline-block py-1 md:py-4 text-white hover:text-gray-100 mr-6"
-                >Login</a
-                >
-                <a
-                        href="/register"
-                        class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
-                >Sign Up</a
-                >
-            </div>
+                <div class="hidden md:block">
+                    <a
+                            href="/login"
+                            class="inline-block py-1 md:py-4 text-white hover:text-gray-100 mr-6"
+                    >Login</a
+                    >
+                    <a
+                            href="/register"
+                            class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
+                    >Sign Up</a
+                    >
+                </div>
             {% endif %}
 
             {% if id[0]["id"] is defined %}
@@ -58,7 +58,6 @@
                     >
                 </div>
             {% endif %}
-
 
 
         </div>
@@ -79,18 +78,24 @@
                             The love of your life may be one click away.
                         </p>
                         {% if id[0]["id"] is empty %}
-                        <a
-                                href="/register"
-                                class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
-                        >Register to start matching</a
-                        >
+                            <a
+                                    href="/register"
+                                    class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
+                            >Register to start matching</a
+                            >
                         {% endif %}
                         {% if id[0]["id"] is defined %}
-                        <a
-                                href="/matching"
-                                class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
-                        >Start Matching</a
-                        >
+                            <a
+                                    href="/matching"
+                                    class="w-100 h-100 mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
+                            >Start Matching</a
+                            >
+                            <br>
+                            <a
+                                    href="/matches"
+                                    class="w-112 h-100 mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-green-500 hover:bg-green-600 rounded-lg shadow"
+                            >Your Matches</a
+                            >
                         {% endif %}
                     </div>
                     <div class="md:w-1/2 relative">
@@ -102,15 +107,14 @@
                                 <div
                                         class=""
                                 >
-                                    </div>
                                 </div>
                             </div>
-                            </div>
-                            <div
-                                    class=""
-                                    style="transform: rotate(-8deg); z-index: 2; margin-bottom: -220px;"
-                            >
-
+                        </div>
+                    </div>
+                    <div
+                            class=""
+                            style="transform: rotate(-8deg); z-index: 2; margin-bottom: -220px;"
+                    >
 
 
                     </div>

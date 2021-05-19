@@ -39,6 +39,7 @@
             </div>
     </div>
 </div>
+
 <div class="tbg mx-auto my-0 mt-3 bg-white border border-white">
     {% for user in users %}
     <div class="theader flex justify-between bg-gray-200  border-white">
@@ -56,20 +57,16 @@
     </div>
 
 
-    <div class="p-3 flex flex-col items-center">
-        <div class="tphoto rounded-lg border border-gray-400 shadow-lg">
-
-            <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                 class="w-full user-image "
+    <div class="p-24 flex flex-col items-center">
+        <div class="rounded-lg shadow-lg">
+            <img src="{{photos[user['id']]}}"
+                 class="w-96 h-96 user-image "
                  title="tphoto"
                  alt="Tinder Photo"
             />
-
-            <div class="flex justify-between">
+            <div class="flex content-center">
                 <div class="tname text-xl float-left p-4">{{ user['username'] }} </div>
-
             </div>
-
         </div>
         <div>
             <div class="m-6 space-x-3">
@@ -109,6 +106,10 @@
         </div>
     </div>
     {% endfor %}
+    <div class="text-center p-24 text-2xl">
+        <h1>You ran out of people to match with</h1>
+    </div>
+
 </div>
 </body>
 </html>

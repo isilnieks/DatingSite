@@ -42,9 +42,11 @@ $container->add(UserController::class, UserController::class)
             LikeService::class
         ]);
 $container->add(HomeController::class, HomeController::class)
-    ->addArgument(
-        LikeService::class
-    );
+    ->addArguments(
+        [
+            LikeService::class,
+            PhotoService::class
+        ]);
 
 
 //Routes
@@ -61,7 +63,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
     $r->addRoute('GET', '/matching', [HomeController::class, 'matching']);
     $r->addRoute('POST', '/like', [UserController::class, 'like']);
     $r->addRoute('POST', '/dislike', [UserController::class, 'dislike']);
-
+    $r->addRoute('GET', '/matches', [HomeController::class, 'matches']);
 
 });
 

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Matching</title>
+</head>
+<body>
+
+<div class="bg-indigo-900 px-4 py-4">
+    <div
+            class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
+    >
+        <div class="flex justify-between items-center">
+            <a href="/" class="inline-block py-2 text-white text-xl font-bold"
+            >DatingSite</a
+            >
+            <div
+                    class="inline-block cursor-pointer md:hidden">
+                <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+                <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
+                <div class="bg-gray-400 w-8" style="height: 2px;"></div>
+            </div>
+        </div>
+
+        <div class="hidden md:block">
+            <a
+                    href="/profile"
+                    class="inline-block py-1 md:py-4 text-white hover:text-gray-100 mr-6"
+            >Profile</a
+            >
+            <a
+                    href="/logout"
+                    class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
+            >Logout</a
+            >
+        </div>
+    </div>
+</div>
+
+<div class="bg-white border border-white">
+    {% for user in users %}
+        <div class="p-24 flex flex-col items-center">
+            <div class="rounded-lg shadow-lg">
+                <img src="{{photos[user['id']]}}"
+                     class="w-96 h-96 user-image "
+                     title="tphoto"
+                     alt="Dating Photo"
+                />
+                <div class="flex content-center">
+                    <div class="tname text-xl float-left p-4">{{ user['username'] }} </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+</body>
+</html>

@@ -97,7 +97,6 @@ class MySQLUsersRepository implements UsersRepository
 
     public function dislike(string $id, string $user): void
     {
-
         $this->database->insert('dislike',
             [
                 'id' => $id,
@@ -119,6 +118,39 @@ class MySQLUsersRepository implements UsersRepository
                     'disliked' => $user
                 ])
         );
+    }
+
+    public function matches(string $gender, string $id)
+    {
+        if ($gender === 'm') {
+            $gender = 'f';
+        } elseif ($gender === 'f') {
+            $gender = 'm';
+        }
+        $potentialMatches[] = $this->database->select('users',
+            [
+                'id',
+                'username'
+            ],
+            [
+                'gender' => $gender
+            ]);
+
+        $matches = [];
+        foreach($potentialMatches[0] as $match){
+            if(
+                $this->database->has('like',
+                [
+                    'id' => $id,
+                 'liked' => $match['id']
+                ])
+              )
+            {
+                $matches[] = $match;
+            }
+
+        }
+        return $matches;
 
     }
 

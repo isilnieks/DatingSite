@@ -33,4 +33,9 @@ class LikeService
     {
         return $this->repository->getAllUsers($gender);
     }
+
+    public function matches(string $gender, string $id)
+    {
+        return $this->repository->matches($gender, $id);
+    }
 }

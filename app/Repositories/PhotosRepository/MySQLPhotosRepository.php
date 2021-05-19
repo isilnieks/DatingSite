@@ -21,16 +21,31 @@ class MySQLPhotosRepository implements PhotosRepository
 
     public function save(string $file, string $id): void
     {
+        if($this->database->has('photos',
+            ['id' => $id])){
+            $this->database->update('photos',
+                [
+                    'photo' => $file
+                ],
+            [
+                'id' => $id
+            ]);
+        }
+        else{
         $this->database->insert('photos',
             [
                 'id' => $id,
                 'photo' => $file
-            ]);
-
+            ]);}
     }
 
-    public function getPhotos(string $id): array
+    public function getPhoto(string $id)
     {
-        return [];
+        return $this->database->select('photos',
+            ['photo'],
+            [
+                'id' => $id
+            ]
+        );
     }
 }

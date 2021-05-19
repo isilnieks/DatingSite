@@ -14,5 +14,6 @@ interface UsersRepository
     public function like(string $id, string $user): void;
     public function dislike(string $id, string $user): void;
     public function rated(string $id, string $user): bool;
+    public function matches(string $gender, string $id);
 
 }
